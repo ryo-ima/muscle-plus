@@ -1,0 +1,11 @@
+= form_with(model: training, local: true) do |form|
+  - if training.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(training.errors.count, "error")
+        prohibited this training from being saved:
+      %ul
+        - training.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = form.submit
