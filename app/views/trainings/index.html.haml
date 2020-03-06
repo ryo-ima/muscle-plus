@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Trainings
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @trainings.each do |training|
+      %tr
+        %td= link_to 'Show', training
+        %td= link_to 'Edit', edit_training_path(training)
+        %td= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Training', new_training_path
